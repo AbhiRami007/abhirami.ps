@@ -10,7 +10,7 @@ const reducer = (state = INITIAL_STATE, action) => {
     case ListActionTypes.ADD_ITEM:
       return {
         ...state,
-        listItems: [...state.listItems, action.payload.list]
+        listItems: [action.payload.list]
       };
     case ListActionTypes.LIST_ITEM:
       return {
@@ -19,7 +19,6 @@ const reducer = (state = INITIAL_STATE, action) => {
     case ListActionTypes.SEARCH_ITEM:
       return {
         ...state,
-        listItems: [action.payload.list],
         searchItem: action.payload.searchValue
       };
     default:

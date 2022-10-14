@@ -10,7 +10,7 @@ const Listing = () => {
     console.log(listItems);
     dispatch({ type: "LIST_ITEM" });
     console.log(listItems);
-  });
+  }, []);
 
   const fetchMoreData = () => {
     console.log(fetchMoreData);
@@ -27,14 +27,14 @@ const Listing = () => {
   return (
     <>
       <div class="relative">
-        <header class="sticky top-0 w-full px-4 py-8 text-white bg-[url('/src/Slices/nav_bar.png')] ">
-          <div class="grid grid-cols-2 mr-6">
-            <span class="text-2xl text-white">
+        <header class="sticky top-0 w-full px-4 py-5 text-white bg-[url('/public/Slices/nav_bar.png')] ">
+          <div class="grid grid-cols-2">
+            <span class="text-white">
               <i class="fa fa-arrow-left fa-1x" onClick={goBackToHome}></i>{" "}
               {listItems[0].page.title}
             </span>
-            <form method="GET">
-              <div class="relative text-gray-600 focus-within:text-gray-400">
+            {/* <form method="GET">
+              <div class="relative text-gray-600 focus-within:text-gray-400 mr-20 w-1/2">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-2">
                   <button type="submit" class="p-1 focus:outline-none">
                     <svg
@@ -59,32 +59,33 @@ const Listing = () => {
                   required
                 />
               </div>
-            </form>
+            </form> */}
           </div>
         </header>
 
         <div class="grid grid-cols-3 gap-3 m-3">
-          <InfiniteScroll
+          {/* <InfiniteScroll
             dataLength={listItems[0].page["page-size-returned"]}
             next={fetchMoreData}
             hasMore={true}
             loader={<h4>Loading...</h4>}
-          >
-            {listItems[0].page.content.map((item) => {
-              return (
-                <div class="rounded-none max-w-sm  overflow-hidden shadow-lg mb-5">
-                  <img
-                    class="w-full"
-                    src={item["poster-image"]}
-                    alt="Sunset in the mountains"
-                  />
-                  <div class="py-2 ">
-                    <div class="text-white text-xl ">{item.name}</div>
-                  </div>
+            
+          > */}
+          {listItems[0].page["content-items"].content.map((item) => {
+            return (
+              <div class="rounded-none max-w-sm  overflow-hidden shadow-lg mb-5">
+                <img
+                  class="w-full"
+                  src={item["poster-image"]}
+                  alt="Sunset in the mountains"
+                />
+                <div class="py-2 ">
+                  <div class="text-white">{item.name}</div>
                 </div>
-              );
-            })}
-          </InfiniteScroll>
+              </div>
+            );
+          })}
+          {/* </InfiniteScroll> */}
         </div>
       </div>
     </>

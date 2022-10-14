@@ -1,24 +1,23 @@
 import React, { useEffect } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import * as data from "../../API/CONTENTLISTINGPAGE-PAGE1.json";
-
+import data from "../API/CONTENTLISTINGPAGE-PAGE1.json";
 export const Home = (props) => {
   let navigate = useNavigate();
   const listItems = useSelector((state) => state.listItems);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "ADD_ITEM", payload: { list: data } });
-  });
+  }, []);
   const getMovieList = (searchKey) => {
-    let selectedProduct = listItems[0].page.find(
-      (item) => item.title === searchKey
-    );
+    navigate("/listing");
+    console.log(listItems);
+    let selectedProduct =
+      listItems[0].page.title == searchKey ? listItems[0].page.title : [];
     dispatch({
       type: "SEARCH_ITEM",
       payload: { searchValue: searchKey, list: selectedProduct }
     });
-    navigate("/listing");
   };
   return (
     <div>
