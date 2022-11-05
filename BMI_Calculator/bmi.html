@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="styleesheet" src="./bmi.css" />
+        <!-- <link src="./bmi.js" /> -->
+        <title>BMI Calculator</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <form id="form">
+                Age <input type="number" id="age" name="age" min="2" max="120" /> ages: 2-120 <br />
+                Gender <input type="radio" name="gender" id="gender" value="m" />Male
+                <input type="radio" name="gender" id="gender" value="f">Female<br />
+                Height <input type="text" name="height" id="height" placeholder="cm"><br />
+                Weight <input type="text" name="weight" - id="weight" placeholder="kg"><br />
+                <input type="submit" name="Submit" value="Calculate" />
+                <input type="reset" name="reset" value="Clear" id="reset" />
+            </form>
+            <div class="display">
+                <div id="result"></div>
+                <div id="display"> </div>
+            </div>
+        </div>
+    </body>
+    <script src="./bmi.js">
+        // function showMessage(e) {
+        //     e.preventDefault()
+        //     console.log("cl")
+        //     const age = document.getElementById("age")
+        //     console.log(age)
+
+        // }
+    </script>
+
+</html>
