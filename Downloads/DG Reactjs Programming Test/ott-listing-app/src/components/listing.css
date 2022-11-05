@@ -1,0 +1,6 @@
+.custom:hover{
+    cursor: pointer;
+    width:50rem;
+    height: 15rem;
+    margin-top: -50px;
+}
